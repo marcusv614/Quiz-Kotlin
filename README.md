@@ -8,11 +8,10 @@ Um aplicativo de Quiz moderno e interativo desenvolvido para demonstrar o poder 
 
 ## Screenshots
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/9991217e-61d0-40e8-8b54-998826723f5b" width="200" alt="Pergunta Inicial" />
-  <img src="https://github.com/user-attachments/assets/1a687311-9a70-4927-a906-896899736868" width="200" alt="Feedback de Resposta" />
-  <img src="https://github.com/user-attachments/assets/3b320d32-94b1-4191-8818-f604b12c62c9" width="200" alt="Resultado Final" />
-</div>
+<img width="200"  alt="Screenshot_20260515_154414" src="https://github.com/user-attachments/assets/d32130ec-5393-4a94-9bf1-f9875c7b5b9e" />
+<img width="200"  alt="Screenshot_20260515_154402" src="https://github.com/user-attachments/assets/82dcbee7-2d6a-4afc-ada9-0c652cf59dd8" />
+<img width="200"  alt="Screenshot_20260515_154312" src="https://github.com/user-attachments/assets/5edea8fe-1bdd-44a7-bf99-7092b57dc19a" />
+
 
 
 ## Sobre o Projeto
