@@ -10,7 +10,7 @@ val questions = listOf(
     Question (
         text = "Qual é a linguagem oficial Android?",
         options = listOf("Python","Java","Kotlin"),
-        indexCorrectAnswer = 1
+        indexCorrectAnswer = 2
     ),
     Question (
         text = "Qual componente usamos para criar interfaces no Jetpack Compose? ",

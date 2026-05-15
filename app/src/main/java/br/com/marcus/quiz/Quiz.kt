@@ -1,5 +1,6 @@
 package br.com.marcus.quiz
 
+import android.R
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -21,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.marcus.quiz.ui.theme.QuizTheme
@@ -28,6 +31,7 @@ import br.com.marcus.quiz.ui.theme.QuizTheme
 @Composable
 fun Quiz() {
     var answered by remember { mutableStateOf(false) }
+    var showResult by remember { mutableStateOf(false) }
     var score by remember { mutableStateOf(0) }
     var selectedOption by remember { mutableStateOf(-1) }
     var currentQuestion by remember { mutableStateOf(0) }
@@ -80,17 +84,33 @@ fun Quiz() {
         }
         Spacer(modifier = Modifier.height(24.dp))
         if (answered) {
-            Button(
-                onClick = {
-                    currentQuestion++
-                    answered = false
-                    selectedOption = -1
+            if (currentQuestion < questions.size -1) {
+                Button(
+                    onClick = {
+                        currentQuestion++
+                        answered = false
+                        selectedOption = -1
+                    }
+                ) {
+                    Text(
+                        text = "Próxima pergunta"
+                    )
                 }
-            ) {
-                Text(
-                    text = "Próxima pergunta"
-                )
+            } else {
+                Button(onClick = {
+                    showResult = true
+                }) {
+                    Text("Ver resultado")
+                }
             }
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        if (showResult) {
+            Text(
+                text = "Acertou: $score de ${questions.size} perguntas",
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center
+            )
         }
     }
 }
