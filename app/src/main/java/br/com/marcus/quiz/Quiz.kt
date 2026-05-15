@@ -1,5 +1,6 @@
 package br.com.marcus.quiz
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,6 +23,9 @@ import br.com.marcus.quiz.ui.theme.QuizTheme
 
 @Composable
 fun Quiz() {
+    var answered by remember { mutableStateOf(false) }
+    var score by remember { mutableStateOf(0) }
+    var selectedOption by remember { mutableStateOf(-1) }
     var currentQuestion by remember { mutableStateOf(0) }
     val question = questions[currentQuestion]
     Column(
@@ -41,17 +45,34 @@ fun Quiz() {
         Spacer(modifier = Modifier.height(24.dp))
         question.options.forEachIndexed { index: Int, option: String ->
             Card(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(enabled = answered.not()) {
+                        answered = true
+                        selectedOption = index
+                        if (index == question.indexCorrectAnswer) {score++}
+                    }
             ) {
                 Text(
                     text = option,
                     modifier = Modifier.padding(16.dp),
                     style = MaterialTheme.typography.titleLarge
                 )
-
-
             }
-
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        if (answered) {
+            Button(
+                onClick = {
+                    currentQuestion++
+                    answered = false
+                    selectedOption = -1
+                }
+            ) {
+                Text(
+                    text = "Próxima pergunta"
+                )
+            }
         }
     }
 }
