@@ -26,5 +26,5 @@ val questions = listOf(
         text = "Quem desenvolve o Android?",
         options = listOf("Google","Apple","Microsoft"),
         indexCorrectAnswer = 0
-    )
+    )   
 ).shuffled()
